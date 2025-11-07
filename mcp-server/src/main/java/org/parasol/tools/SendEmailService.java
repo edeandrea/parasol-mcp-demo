@@ -12,7 +12,6 @@ import io.opentelemetry.context.Context;
 import io.quarkiverse.mcp.server.ToolResponse;
 
 import dev.langchain4j.agent.tool.P;
-import dev.langchain4j.agent.tool.Tool;
 
 @ApplicationScoped
 public class SendEmailService {
@@ -30,7 +29,7 @@ public class SendEmailService {
     this.tracer = tracer;
   }
 
-  @Tool(name = "sendEmail", value = "Sends an email")
+//  @dev.langchain4j.agent.tool.Tool(name = "sendEmail", value = "Sends an email")
   public ToolResponse sendEmail(Email email) {
     var span = this.tracer.spanBuilder("sendEmail")
         .setAttribute("arg.email", email.toString())
