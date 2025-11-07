@@ -43,7 +43,7 @@ class ClaimantInfoServiceTests {
 		Claim.persist(claim);
 		assertThat(Claim.count()).isOne();
 
-		assertThat(this.claimantInfoService.getClaimant(claim.claimNumber))
+		assertThat(this.claimantInfoService.getClaimant(claim.id))
 			.isNotNull()
 			.usingRecursiveComparison()
 			.isEqualTo(new Claimant(claim.clientName, claim.emailAddress));
@@ -55,7 +55,7 @@ class ClaimantInfoServiceTests {
 		assertThat(Claim.count()).isZero();
 
 		assertThatExceptionOfType(IllegalArgumentException.class)
-			.isThrownBy(() -> this.claimantInfoService.getClaimant("CLM1234"))
-			.withMessage("Claimant not found for claim number CLM1234");
+			.isThrownBy(() -> this.claimantInfoService.getClaimant(1L))
+			.withMessage("Claimant not found for claim id 1");
 	}
 }

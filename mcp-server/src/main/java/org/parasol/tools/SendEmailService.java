@@ -31,9 +31,7 @@ public class SendEmailService {
   }
 
   @Tool(name = "sendEmail", value = "Sends an email")
-//  @Tool(name = "sendEmail", description = "Sends an email")
   public ToolResponse sendEmail(Email email) {
-//  public ToolResponse sendEmail(@ToolArg(name = "email", description = "The email") Email email) {
     var span = this.tracer.spanBuilder("sendEmail")
         .setAttribute("arg.email", email.toString())
         .setParent(Context.current().with(Span.current()))

@@ -9,7 +9,6 @@ import dev.langchain4j.service.UserMessage;
 import io.quarkiverse.langchain4j.RegisterAiService;
 import io.quarkiverse.langchain4j.ToolBox;
 import io.quarkiverse.langchain4j.mcp.runtime.McpToolBox;
-import io.smallrye.mutiny.Multi;
 
 @RegisterAiService(modelName = "parasol-chat")
 @SessionScoped
@@ -38,6 +37,6 @@ public interface ClaimService {
     """)
 	@ToolBox({ ClaimantInfoService.class, NotificationService.class })
 	@McpToolBox
-		//	  String chat(ClaimBotQuery query);
-	Multi<String> chat(ClaimBotQuery query);
+	String chat(ClaimBotQuery query);
+//	Multi<String> chat(ClaimBotQuery query);
 }
