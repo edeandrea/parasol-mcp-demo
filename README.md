@@ -19,7 +19,7 @@ Both projects are standard Maven builds that you run separately in dev mode.
 ## High-level demo flow
 
 1) User interacts with [`parasol-app`](parasol-app)
-    - Go to a claim, open the chatbot, and ask something like `Please send an email to the claimant notifying them that adjuster Emmet Brown has been assigned to the claim.`
+    - [Go to a claim](http://localhost:8080/ClaimDetail/1), open the chatbot, and ask something like `Please send an email to the claimant notifying them that adjuster Emmet Brown has been assigned to the claim.`
 2) The bot may say that it sent the email. If so, ask it if it _really_ sent it. It should say it doesn't know how to do that.
 3) Open [`SendEmailService`](mcp-server/src/main/java/org/parasol/tools/SendEmailService.java) and uncomment the line `@dev.langchain4j.agent.tool.Tool(name = "sendEmail", value = "Sends an email")`
 4) In the `mcp-server` dev mode, hit the `s` key to trigger a reload.
